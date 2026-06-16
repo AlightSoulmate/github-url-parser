@@ -6,17 +6,7 @@
 [![publish](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml)
 [![package size](https://img.shields.io/npm/unpacked-size/github-url-parser.svg)](https://www.npmjs.com/package/github-url-parser)
 
-> A TypeScript-friendly GitHub URL parser for npm.
-
-Parse GitHub URLs and GitHub repository remotes into structured metadata for repositories, files, directories, issues, pull requests, commits, releases, comparisons, discussions, and GitHub Actions workflow runs.
-
-`github-url-parser` normalizes GitHub remotes, shorthand repository specifiers, and browser URLs for files, directories, issues, pull requests, commits, releases, comparisons, discussions, and workflow runs. It includes TypeScript declarations, makes no network requests, and returns `null` for unsupported or non-GitHub input.
-
-- Parse GitHub repository URLs, SSH remotes, shortcuts, and `user/repo` specifiers.
-- Extract normalized owner, repo, browse, API, HTTPS, SSH, and raw file URLs.
-- Recognize GitHub issues, pull requests, commits, releases, compare pages, discussions, and Actions workflow runs.
-- Work offline with no GitHub API requests and no runtime configuration.
-- Ship TypeScript declarations with a small ESM-only package surface.
+A TypeScript-friendly GitHub URL parser for npm.
 
 ## Installation
 
@@ -55,29 +45,13 @@ console.log(result);
 }
 ```
 
-Invalid URLs, unsupported GitHub pages, and non-GitHub hosted Git URLs return `null`.
-
-```js
-parseGitHubUrl("https://example.com/foo/bar");
-// null
-
-parseGitHubUrl("https://gitlab.com/user/repo");
-// null
-```
-
 ## API
 
 ### `parseGitHubUrl(url)`
 
 Parses `url` and returns a metadata object for supported GitHub URLs. Returns `null` when the input cannot be parsed as a supported GitHub resource.
 
-The package exports `parseGitHubUrl` as a named ESM export.
-
-TypeScript declarations are included.
-
 ## Supported Inputs
-
-Repository and remote specifiers are parsed through `hosted-git-info`:
 
 ```txt
 https://github.com/user/repo
@@ -87,15 +61,12 @@ github:user/repo
 user/repo
 ```
 
-GitHub browser URLs are parsed directly:
-
 ```txt
-https://github.com/user/repo
 https://github.com/user/repo/tree/main/src
 https://github.com/user/repo/blob/main/src/index.js
 https://github.com/user/repo/issues/123
 https://github.com/user/repo/pull/456
-https://github.com/user/repo/commit/abc123
+https://github.com/user/repo/commit/d34ce11
 https://github.com/user/repo/compare/main...dev
 https://github.com/user/repo/releases
 https://github.com/user/repo/releases/tag/v1.0.0
@@ -109,8 +80,6 @@ https://github.com/user/repo/actions/runs/123456789
 ```
 
 ## Result Object
-
-Every successful parse includes the base repository fields:
 
 ```js
 {
@@ -127,16 +96,6 @@ Every successful parse includes the base repository fields:
   sshUrl: "git@github.com:user/repo.git"
 }
 ```
-
-Field notes:
-
-- `owner` and `repo` identify the repository.
-- `kind` identifies the parsed resource type.
-- `committish` is `null` unless the URL carries a branch, tag, commit, or other ref-like value.
-- `repoUrl` always points to the repository page.
-- `browseUrl` points to the parsed GitHub page or repository browser URL.
-- `apiUrl` is the closest related GitHub REST API endpoint generated from the URL. For resources without a dedicated REST endpoint, it falls back to the repository API URL. The package does not call the GitHub API.
-- `httpsUrl` and `sshUrl` are normalized Git remote URLs.
 
 Additional fields are included for specific resource types:
 
@@ -219,26 +178,6 @@ parseGitHubUrl("https://github.com/user/repo/issues/123");
 // }
 ```
 
-### Pull request
-
-```js
-parseGitHubUrl("https://github.com/user/repo/pull/456");
-// {
-//   owner: "user",
-//   repo: "repo",
-//   domain: "github.com",
-//   type: "github",
-//   kind: "pull",
-//   committish: null,
-//   repoUrl: "https://github.com/user/repo",
-//   browseUrl: "https://github.com/user/repo/pull/456",
-//   apiUrl: "https://api.github.com/repos/user/repo/pulls/456",
-//   httpsUrl: "https://github.com/user/repo.git",
-//   sshUrl: "git@github.com:user/repo.git",
-//   number: 456
-// }
-```
-
 ### File URL
 
 ```js
@@ -287,7 +226,6 @@ parseGitHubUrl("https://github.com/user/repo/compare/main...dev");
 
 - Only `github.com` URLs are supported.
 - API URLs and raw file URLs are generated strings; they are not validated with the GitHub API.
-- Unsupported GitHub pages, malformed issue or pull request numbers, and invalid compare ranges return `null`.
 
 ## Development
 
