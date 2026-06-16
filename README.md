@@ -6,6 +6,8 @@
 [![publish](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml)
 [![package size](https://img.shields.io/npm/unpacked-size/github-url-parser.svg)](https://www.npmjs.com/package/github-url-parser)
 
+> A TypeScript-friendly GitHub URL parser for npm.
+
 Parse GitHub URLs and GitHub repository remotes into structured metadata for repositories, files, directories, issues, pull requests, commits, releases, comparisons, discussions, and GitHub Actions workflow runs.
 
 `github-url-parser` normalizes GitHub remotes, shorthand repository specifiers, and browser URLs for files, directories, issues, pull requests, commits, releases, comparisons, discussions, and workflow runs. It includes TypeScript declarations, makes no network requests, and returns `null` for unsupported or non-GitHub input.
