@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/npm/l/github-url-parser.svg)](https://github.com/AlightSoulmate/github-url-parser/blob/master/LICENSE)
 [![types](https://img.shields.io/npm/types/github-url-parser.svg)](https://www.npmjs.com/package/github-url-parser)
 [![publish](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml)
-[![package size](https://img.shields.io/bundlephobia/minzip/github-url-parser.svg)](https://bundlephobia.com/package/github-url-parser)
+[![package size](https://img.shields.io/npm/unpacked-size/github-url-parser.svg)](https://www.npmjs.com/package/github-url-parser)
 
 Parse GitHub repository URLs and common GitHub page URLs into a predictable metadata object.
 
