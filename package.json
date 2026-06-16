@@ -1,6 +1,6 @@
 {
   "name": "github-url-parser",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Parse GitHub URLs, repository remotes, issues, pull requests, releases, commits, files, and workflow runs into normalized metadata.",
   "type": "module",
   "main": "./index.js",
