@@ -1,6 +1,6 @@
 {
-  "name": "parse-github-url",
-  "version": "0.1.0",
+  "name": "github-url-parser",
+  "version": "0.2.0",
   "description": "Parse GitHub repository and page URLs into normalized metadata.",
   "type": "module",
   "types": "./index.d.ts",
@@ -15,22 +15,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlightSoulmate/parse-github-url.git"
+    "url": "git+https://github.com/AlightSoulmate/github-url-parser.git"
   },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "parse",
+    "parser",
     "github",
     "url",
+    "git",
     "repo",
+    "repository",
+    "metadata",
     "browser",
     "json"
   ],
   "author": "alightsoulmate",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlightSoulmate/parse-github-url/issues"
+    "url": "https://github.com/AlightSoulmate/github-url-parser/issues"
   },
-  "homepage": "https://github.com/AlightSoulmate/parse-github-url#readme",
+  "homepage": "https://github.com/AlightSoulmate/github-url-parser#readme",
   "dependencies": {
     "hosted-git-info": "^10.1.1"
   },

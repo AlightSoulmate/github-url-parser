@@ -1,22 +1,22 @@
-# parse-github-url
+# github-url-parser
 
 Parse GitHub repository URLs and common GitHub page URLs into a predictable metadata object.
 
-`parse-github-url` normalizes GitHub remotes, shorthand repository specifiers, and browser URLs for files, directories, issues, pull requests, commits, releases, comparisons, discussions, and workflow runs. It includes TypeScript declarations, makes no network requests, and returns `null` for unsupported or non-GitHub input.
+`github-url-parser` normalizes GitHub remotes, shorthand repository specifiers, and browser URLs for files, directories, issues, pull requests, commits, releases, comparisons, discussions, and workflow runs. It includes TypeScript declarations, makes no network requests, and returns `null` for unsupported or non-GitHub input.
 
 ## Installation
 
 ```sh
-npm install parse-github-url
+npm install github-url-parser
 ```
 
 ## Usage
 
 ```js
-import { parseGitHubUrl } from "parse-github-url";
+import { parseGitHubUrl } from "github-url-parser";
 
 const result = parseGitHubUrl(
-  "https://github.com/AlightSoulmate/parse-github-url/blob/main/package.json"
+  "https://github.com/AlightSoulmate/github-url-parser/blob/main/package.json"
 );
 
 console.log(result);
@@ -25,19 +25,19 @@ console.log(result);
 ```js
 {
   owner: "AlightSoulmate",
-  repo: "parse-github-url",
+  repo: "github-url-parser",
   domain: "github.com",
   type: "github",
   kind: "blob",
   committish: "main",
-  repoUrl: "https://github.com/AlightSoulmate/parse-github-url",
-  browseUrl: "https://github.com/AlightSoulmate/parse-github-url/blob/main/package.json",
-  apiUrl: "https://api.github.com/repos/AlightSoulmate/parse-github-url/contents/package.json?ref=main",
-  httpsUrl: "https://github.com/AlightSoulmate/parse-github-url.git",
-  sshUrl: "git@github.com:AlightSoulmate/parse-github-url.git",
+  repoUrl: "https://github.com/AlightSoulmate/github-url-parser",
+  browseUrl: "https://github.com/AlightSoulmate/github-url-parser/blob/main/package.json",
+  apiUrl: "https://api.github.com/repos/AlightSoulmate/github-url-parser/contents/package.json?ref=main",
+  httpsUrl: "https://github.com/AlightSoulmate/github-url-parser.git",
+  sshUrl: "git@github.com:AlightSoulmate/github-url-parser.git",
   ref: "main",
   path: "package.json",
-  rawUrl: "https://raw.githubusercontent.com/AlightSoulmate/parse-github-url/main/package.json"
+  rawUrl: "https://raw.githubusercontent.com/AlightSoulmate/github-url-parser/main/package.json"
 }
 ```
 
@@ -150,19 +150,19 @@ Additional fields are included for specific resource types:
 ### Repository shorthand
 
 ```js
-parseGitHubUrl("github:AlightSoulmate/parse-github-url#v0.1.0");
+parseGitHubUrl("github:AlightSoulmate/github-url-parser#v0.1.0");
 // {
 //   owner: "AlightSoulmate",
-//   repo: "parse-github-url",
+//   repo: "github-url-parser",
 //   domain: "github.com",
 //   type: "github",
 //   kind: "repo",
 //   committish: "v0.1.0",
-//   repoUrl: "https://github.com/AlightSoulmate/parse-github-url",
-//   browseUrl: "https://github.com/AlightSoulmate/parse-github-url/tree/v0.1.0",
-//   apiUrl: "https://api.github.com/repos/AlightSoulmate/parse-github-url",
-//   httpsUrl: "https://github.com/AlightSoulmate/parse-github-url.git#v0.1.0",
-//   sshUrl: "git@github.com:AlightSoulmate/parse-github-url.git#v0.1.0"
+//   repoUrl: "https://github.com/AlightSoulmate/github-url-parser",
+//   browseUrl: "https://github.com/AlightSoulmate/github-url-parser/tree/v0.1.0",
+//   apiUrl: "https://api.github.com/repos/AlightSoulmate/github-url-parser",
+//   httpsUrl: "https://github.com/AlightSoulmate/github-url-parser.git#v0.1.0",
+//   sshUrl: "git@github.com:AlightSoulmate/github-url-parser.git#v0.1.0"
 // }
 ```
 
