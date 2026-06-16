@@ -1,0 +1,22 @@
+{
+  "name": "parse-github-url",
+  "version": "1.0.0",
+  "description": "Parse GitHub URL and convert it into several pieces of information you want.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlightSoulmate/parse-github-url.git"
+  },
+  "keywords": [
+    "github"
+  ],
+  "author": "alightsoulmate",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlightSoulmate/parse-github-url/issues"
+  },
+  "homepage": "https://github.com/AlightSoulmate/parse-github-url#readme"
+}
