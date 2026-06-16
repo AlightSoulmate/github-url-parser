@@ -1,6 +1,6 @@
 {
   "name": "github-url-parser",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Parse GitHub repository and page URLs into normalized metadata.",
   "type": "module",
   "types": "./index.d.ts",
