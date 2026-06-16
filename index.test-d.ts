@@ -13,6 +13,7 @@ if (parsed?.kind === "issue") {
   expectType<GitHubIssueInfo>(parsed);
   expectType<number>(parsed.number);
   expectType<null>(parsed.committish);
+  expectType<string>(parsed.apiUrl);
   expectError(parsed.sha);
 }
 
@@ -48,6 +49,7 @@ const workflowRun = parseGitHubUrl(
 
 if (workflowRun?.kind === "workflow-run") {
   expectType<number>(workflowRun.runId);
+  expectType<string>(workflowRun.apiUrl);
   expectError(workflowRun.number);
 }
 

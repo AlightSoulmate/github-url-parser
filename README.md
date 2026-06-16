@@ -127,7 +127,7 @@ Field notes:
 - `committish` is `null` unless the URL carries a branch, tag, commit, or other ref-like value.
 - `repoUrl` always points to the repository page.
 - `browseUrl` points to the parsed GitHub page or repository browser URL.
-- `apiUrl` is the closest related GitHub REST API endpoint generated from the URL. The package does not call the GitHub API.
+- `apiUrl` is the closest related GitHub REST API endpoint generated from the URL. For resources without a dedicated REST endpoint, it falls back to the repository API URL. The package does not call the GitHub API.
 - `httpsUrl` and `sshUrl` are normalized Git remote URLs.
 
 Additional fields are included for specific resource types:
@@ -218,7 +218,7 @@ parseGitHubUrl("https://github.com/user/repo/compare/main...dev");
 
 - Only `github.com` URLs are supported.
 - API URLs and raw file URLs are generated strings; they are not validated with the GitHub API.
-- Discussions do not currently include GitHub REST API URLs.
+- Discussions do not currently include discussion-specific GitHub REST API URLs.
 - Unsupported GitHub pages, malformed issue or pull request numbers, and invalid compare ranges return `null`.
 
 ## Development
