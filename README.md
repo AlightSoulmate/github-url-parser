@@ -218,7 +218,6 @@ parseGitHubUrl("https://github.com/user/repo/compare/main...dev");
 
 - Only `github.com` URLs are supported.
 - API URLs and raw file URLs are generated strings; they are not validated with the GitHub API.
-- Discussions do not currently include discussion-specific GitHub REST API URLs.
 - Unsupported GitHub pages, malformed issue or pull request numbers, and invalid compare ranges return `null`.
 
 ## Development
@@ -227,7 +226,7 @@ parseGitHubUrl("https://github.com/user/repo/compare/main...dev");
 npm test
 ```
 
-Runs both the AVA runtime tests and the TSD TypeScript declaration tests.
+Runs both AVA and TSD test.
 
 ## License
 
