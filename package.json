@@ -1,22 +1,41 @@
 {
   "name": "parse-github-url",
-  "version": "1.0.0",
-  "description": "Parse GitHub URL and convert it into several pieces of information you want.",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Parse GitHub repository and page URLs into normalized metadata.",
+  "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava && tsd"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlightSoulmate/parse-github-url.git"
   },
   "keywords": [
-    "github"
+    "parse",
+    "github",
+    "url",
+    "repo",
+    "browser",
+    "json"
   ],
   "author": "alightsoulmate",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AlightSoulmate/parse-github-url/issues"
   },
-  "homepage": "https://github.com/AlightSoulmate/parse-github-url#readme"
+  "homepage": "https://github.com/AlightSoulmate/parse-github-url#readme",
+  "dependencies": {
+    "hosted-git-info": "^10.1.1"
+  },
+  "devDependencies": {
+    "ava": "^8.0.1",
+    "tsd": "^0.33.0"
+  }
 }
