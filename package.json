@@ -1,14 +1,18 @@
 {
   "name": "github-url-parser",
   "version": "0.2.8",
-  "description": "Parse GitHub repository and page URLs into normalized metadata.",
+  "description": "Parse GitHub URLs, repository remotes, issues, pull requests, releases, commits, files, and workflow runs into normalized metadata.",
   "type": "module",
+  "main": "./index.js",
   "types": "./index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "import": "./index.js"
-    }
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "ava && tsd"
@@ -27,16 +31,23 @@
     "parse",
     "parser",
     "github",
+    "github-url",
     "url",
     "git",
     "repo",
     "repository",
+    "issues",
+    "pull-request",
+    "actions",
     "metadata",
     "browser",
     "json"
   ],
   "author": "alightsoulmate",
   "license": "MIT",
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
   "bugs": {
     "url": "https://github.com/AlightSoulmate/github-url-parser/issues"
   },

@@ -6,9 +6,15 @@
 [![publish](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/AlightSoulmate/github-url-parser/actions/workflows/publish.yml)
 [![package size](https://img.shields.io/npm/unpacked-size/github-url-parser.svg)](https://www.npmjs.com/package/github-url-parser)
 
-Parse GitHub repository URLs and common GitHub page URLs into a predictable metadata object.
+Parse GitHub URLs and GitHub repository remotes into structured metadata for repositories, files, directories, issues, pull requests, commits, releases, comparisons, discussions, and GitHub Actions workflow runs.
 
 `github-url-parser` normalizes GitHub remotes, shorthand repository specifiers, and browser URLs for files, directories, issues, pull requests, commits, releases, comparisons, discussions, and workflow runs. It includes TypeScript declarations, makes no network requests, and returns `null` for unsupported or non-GitHub input.
+
+- Parse GitHub repository URLs, SSH remotes, shortcuts, and `user/repo` specifiers.
+- Extract normalized owner, repo, browse, API, HTTPS, SSH, and raw file URLs.
+- Recognize GitHub issues, pull requests, commits, releases, compare pages, discussions, and Actions workflow runs.
+- Work offline with no GitHub API requests and no runtime configuration.
+- Ship TypeScript declarations with a small ESM-only package surface.
 
 ## Installation
 
@@ -153,6 +159,25 @@ Additional fields are included for specific resource types:
 
 ## Examples
 
+### SSH remote
+
+```js
+parseGitHubUrl("git@github.com:user/repo.git");
+// {
+//   owner: "user",
+//   repo: "repo",
+//   domain: "github.com",
+//   type: "github",
+//   kind: "repo",
+//   committish: null,
+//   repoUrl: "https://github.com/user/repo",
+//   browseUrl: "https://github.com/user/repo",
+//   apiUrl: "https://api.github.com/repos/user/repo",
+//   httpsUrl: "https://github.com/user/repo.git",
+//   sshUrl: "git@github.com:user/repo.git"
+// }
+```
+
 ### Repository shorthand
 
 ```js
@@ -189,6 +214,48 @@ parseGitHubUrl("https://github.com/user/repo/issues/123");
 //   httpsUrl: "https://github.com/user/repo.git",
 //   sshUrl: "git@github.com:user/repo.git",
 //   number: 123
+// }
+```
+
+### Pull request
+
+```js
+parseGitHubUrl("https://github.com/user/repo/pull/456");
+// {
+//   owner: "user",
+//   repo: "repo",
+//   domain: "github.com",
+//   type: "github",
+//   kind: "pull",
+//   committish: null,
+//   repoUrl: "https://github.com/user/repo",
+//   browseUrl: "https://github.com/user/repo/pull/456",
+//   apiUrl: "https://api.github.com/repos/user/repo/pulls/456",
+//   httpsUrl: "https://github.com/user/repo.git",
+//   sshUrl: "git@github.com:user/repo.git",
+//   number: 456
+// }
+```
+
+### File URL
+
+```js
+parseGitHubUrl("https://github.com/user/repo/blob/main/src/index.js");
+// {
+//   owner: "user",
+//   repo: "repo",
+//   domain: "github.com",
+//   type: "github",
+//   kind: "blob",
+//   committish: "main",
+//   repoUrl: "https://github.com/user/repo",
+//   browseUrl: "https://github.com/user/repo/blob/main/src/index.js",
+//   apiUrl: "https://api.github.com/repos/user/repo/contents/src/index.js?ref=main",
+//   httpsUrl: "https://github.com/user/repo.git",
+//   sshUrl: "git@github.com:user/repo.git",
+//   ref: "main",
+//   path: "src/index.js",
+//   rawUrl: "https://raw.githubusercontent.com/user/repo/main/src/index.js"
 // }
 ```
 
