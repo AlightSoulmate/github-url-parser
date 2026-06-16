@@ -218,10 +218,8 @@ parseGitHubUrl("https://github.com/user/repo/compare/main...dev");
 ## Development
 
 ```sh
-npm test
+npm test // ava && tsd
 ```
-
-Runs both the AVA runtime tests and the TSD TypeScript declaration tests.
 
 ## License
 
